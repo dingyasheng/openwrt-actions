@@ -1,4 +1,4 @@
-name: Wrt1900-Lean-CI
+name: Lienol-wrt1900
 
 on: 
   release:
@@ -30,8 +30,8 @@ jobs:
           sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
     - name: Clone source code
       env: 
-        REPO_URL: https://github.com/Lienol/lean-lede
-        REPO_BRANCH: dev
+        REPO_URL: https://github.com/Lienol/openwrt
+        REPO_BRANCH: my-19.07-full
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
@@ -43,7 +43,7 @@ jobs:
       run: |
           cd openwrt
           rm -f .config
-          cp ../lean-lede-wrt1900 .config
+          cp ../lienol-wrt1900 .config
 
     - name: Make download
       run: |
@@ -70,7 +70,6 @@ jobs:
           mkdir -p ./artifact/
           find openwrt/bin/targets/ -name "*sysupgrade*bin*" | xargs -i mv -f {} ./artifact/
           find openwrt/bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
-          find openwrt/bin/targets/ -name "*combined*vmdk*" | xargs -i mv -f {} ./artifact/
 
     - name: Upload artifact
       uses: actions/upload-artifact@master
