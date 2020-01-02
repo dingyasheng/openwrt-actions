@@ -44,6 +44,7 @@ jobs:
           cd openwrt
           rm -f .config
           cp ../lean-lede-wrt1900 .config
+          chmod +x ./customize_wrt1900.sh && ./customize_wrt1900.sh
 
     - name: Make download
       run: |
