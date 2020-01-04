@@ -4,9 +4,9 @@ on:
   release:
     types: [published]
 
-  #push:
-  #  branches: 
-  #    - master
+  push:
+    branches: 
+      - master
 
   #schedule:
   #  - cron: 0 8 * * 5
@@ -41,10 +41,10 @@ jobs:
     
     - name: Costom configure file
       run: |
+          chmod +x ./customize_wrt1900.sh && ./customize_wrt1900.sh
           cd openwrt
           rm -f .config
           cp ../lean-lede-x64 .config
-          chmod +x ./customize_wrt1900.sh && ./customize_wrt1900.sh
 
     - name: Make download
       run: |
