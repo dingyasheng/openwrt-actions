@@ -41,7 +41,7 @@ jobs:
     
     - name: Costom configure file
       run: |
-          chmod +x ./customize_wrt1900.sh && ./customize_wrt1900.sh
+          chmod +x ./customize_k3.sh && ./customize_wrt1900.sh
           cd openwrt
           rm -f .config
           cp ../lean-lede-k3 .config
@@ -69,7 +69,7 @@ jobs:
       run: |
           rm -rf ./artifact/
           mkdir -p ./artifact/
-          find openwrt/bin/targets/ -name "*squashfs*trx*" | xargs -i mv -f {} ./artifact/
+          find openwrt/bin/targets/ -name "*phicomm-k3-squashfs*trx*" | xargs -i mv -f {} ./artifact/
           find openwrt/bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
           #find openwrt/bin/targets/ -name "*combined*vmdk*" | xargs -i mv -f {} ./artifact/
 
