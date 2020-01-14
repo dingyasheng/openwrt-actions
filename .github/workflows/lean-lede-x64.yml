@@ -41,7 +41,7 @@ jobs:
     
     - name: Costom configure file
       run: |
-          chmod +x ./customize_wrt1900.sh && ./customize_wrt1900.sh
+          chmod +x ./customize_x64.sh && ./customize_x64.sh
           cd openwrt
           rm -f .config
           cp ../lean-lede-x64 .config
@@ -76,5 +76,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: OpenWrt firmware
+        name: OpenWrt x64
         path: ./artifact/
