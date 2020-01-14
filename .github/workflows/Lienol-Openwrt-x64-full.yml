@@ -1,4 +1,4 @@
-name: My-OpenWRT-CI-X64-Full
+name: Lienol-Openwrt-CI-X64-Full
 
 on: 
   release:
