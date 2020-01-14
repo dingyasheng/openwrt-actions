@@ -1,4 +1,4 @@
-name: Lienol-Openwrt-CI-X64-Full
+name: Lienol-Openwrt-CI-X64
 
 on: 
   release:
@@ -41,9 +41,10 @@ jobs:
     
     - name: Costom configure file
       run: |
+          chmod +x ./customize_x64.sh && ./customize_x64.sh
           cd openwrt
           rm -f .config
-          cp ../my-19.07-x64-full .config
+          cp ../lienol-x64 .config
 
     - name: Make download
       run: |
@@ -68,11 +69,11 @@ jobs:
       run: |
           rm -rf ./artifact/
           mkdir -p ./artifact/
-          find openwrt/bin/targets/ -name "*sysupgrade*bin*" | xargs -i mv -f {} ./artifact/
+          #find openwrt/bin/targets/ -name "*sysupgrade*bin*" | xargs -i mv -f {} ./artifact/
           find openwrt/bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
 
     - name: Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: OpenWrt firmware
+        name: OpenWrt x64
         path: ./artifact/
