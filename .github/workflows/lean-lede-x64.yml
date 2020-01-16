@@ -1,4 +1,4 @@
-name: X64-Lean-lienol
+name: OpenWrt Lean-lienol X64
 
 on: 
   release:
