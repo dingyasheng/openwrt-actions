@@ -76,5 +76,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: OpenWrt Wrt1900
+        name: OpenWrt Lean-CI wrt1900
         path: ./artifact/
