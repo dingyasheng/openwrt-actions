@@ -76,5 +76,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: OpenWrt K3
+        name: OpenWrt Lean-CI K3
         path: ./artifact/
