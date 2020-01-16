@@ -1,4 +1,4 @@
-name: X64-Lean-CI
+name: X64-Lean-lienol
 
 on: 
   release:
@@ -76,5 +76,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: OpenWrt x64
+        name: OpenWrt Lean-lienol x64
         path: ./artifact/

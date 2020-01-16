@@ -1,4 +1,4 @@
-name: WRT1900-Lean-CI
+name: WRT1900-Lean-lienol
 
 on: 
   release:
@@ -76,5 +76,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: OpenWrt Wrt1900
+        name: OpenWrt Lean-lienol wrt1900
         path: ./artifact/

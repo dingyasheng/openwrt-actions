@@ -41,6 +41,7 @@ jobs:
     
     - name: Costom configure file
       run: |
+          chmod +x ./customize_wrt1900.sh && ./customize_wrt1900.sh
           cd openwrt
           rm -f .config
           cp ../lienol-wrt1900 .config
@@ -74,5 +75,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: OpenWrt firmware
+        name: OpenWrt Lienol-wrt1900
         path: ./artifact/
