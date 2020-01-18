@@ -1,4 +1,4 @@
-name: Lienol-wrt1900
+name: Openwrt Lienol-wrt1900
 
 on: 
   release:

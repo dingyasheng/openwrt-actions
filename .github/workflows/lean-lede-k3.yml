@@ -1,4 +1,4 @@
-name: K3-Lean-lienol
+name: OpenWrt Lean-lienol k3
 
 on: 
   release:
@@ -76,5 +76,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: OpenWrt Lean-lienol
+        name: OpenWrt Lean-lienol k3
         path: ./artifact/

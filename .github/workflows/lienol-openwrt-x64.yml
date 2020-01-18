@@ -1,4 +1,4 @@
-name: Lienol-Openwrt-X64
+name: Openwrt Lienol-X64
 
 on: 
   release:
@@ -75,5 +75,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: Lienol x64
+        name: Openwrt Lienol-x64
         path: ./artifact/
