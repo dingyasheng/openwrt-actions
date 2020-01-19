@@ -70,7 +70,7 @@ jobs:
         ./scripts/feeds install -a
         ./scripts/feeds install -a
 
-    - name: Configuration Customization - Build_x86_64
+    - name: Configuration Customization - Build_wrt1900
       env:
         CONFIG_FILE: 'wrt1900.config'
       run: |
@@ -92,9 +92,16 @@ jobs:
         echo -e "$(nproc) thread build."
         make -j$(nproc) V=s
 
-    - name : Upload artifact
+    - name: Assemble artifact
+      run: |
+          rm -rf ./artifact/
+          mkdir -p ./artifact/
+          #find openwrt/bin/targets/ -name "*sysupgrade*bin*" | xargs -i mv -f {} ./artifact/
+          find openwrt/bin/targets/ -name "*squashfs-factory*img*" | xargs -i mv -f {} ./artifact/
+          #find openwrt/bin/targets/ -name "*combined*vmdk*" | xargs -i mv -f {} ./artifact/
+          
+    - name: Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: OpenWrt
-        path: openwrt/bin
-
+        name: OpenWrt Lean-lienol wrt1900
+        path: ./artifact/
